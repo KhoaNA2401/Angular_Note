@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "demolab-9dfb3": {
+      "hosting": {
+        "app-note": [
+          "demolab-9dfb3"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "demolab-9dfb3"
+  }
+}

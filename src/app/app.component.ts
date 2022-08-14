@@ -11,6 +11,7 @@ import * as NoteActions from './actions/note.action';
 })
 export class AppComponent implements OnInit {
   title = 'app-note';
+  searchText: any;
   form!: FormGroup;
   noteState$ = this.store.select('note');
   note$ = this.store.select((state) => state.note.notes);
@@ -23,7 +24,6 @@ export class AppComponent implements OnInit {
       title: [''],
       description: [''],
     });
-
   }
   ngOnInit(): void {
     this.noteState$.subscribe((state) => {
@@ -32,18 +32,19 @@ export class AppComponent implements OnInit {
     this.store.dispatch(NoteActions.getAllNotes());
   }
 
+
   addNote() {
     console.log('aaaaaaaaa');
     let newForm = {
       ...this.form.value,
     };
     this.store.dispatch(NoteActions.addNote({ note: newForm }));
-    // this.form.reset(this.form.value);
+    this.form.reset(this.form);
     this.store.dispatch(NoteActions.getAllNotes());
   }
-  deleteNote(id:string){
-    console.log("aaaaaaaaaa")
-    this.store.dispatch(NoteActions.deleteNote({id}));
+  deleteNote(id: string) {
+    console.log('aaaaaaaaaa');
+    this.store.dispatch(NoteActions.deleteNote({ id }));
+    //window.location.reload();
   }
-
 }

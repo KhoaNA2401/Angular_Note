@@ -2,11 +2,14 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
 body {
+  margin-top: 50px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   line-height: 1.42em;
   color:#A7A1AE;
   background-color:#1F2739;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/41294/hero.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 h1 {
@@ -109,11 +112,13 @@ h2 a {
 .container th:nth-child(4) { display: none; }
 }
 .parent {
+  margin-top: 50px;
   display: grid;
   grid-template-columns: minmax(400px, 25%) 1fr;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-left: 1%;
   margin-right: 1%;
+
 }
 .add{
   background-color: #3399FF;
@@ -145,3 +150,59 @@ h2 a {
   height: 40px;
   cursor: pointer;
 }
+
+
+body {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/41294/hero.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+// SEARCH BEGINS
+.search {
+  width: 500px;
+  height: 40px;
+  margin: 150px auto;
+  background: #444;
+  background: rgba(0,0,0,.2);
+  border-radius:  3px;
+  border: 1px solid #fff;
+
+  input {
+    width: 370px;
+    padding: 10px 5px;
+    float: left;
+    color: #ccc;
+    border: 0;
+    background: transparent;
+    border-radius: 3px 0 0 3px;
+    &:focus {
+      outline: 0;
+      background:transparent;
+    }
+  }
+
+  button {
+    position: relative;
+    float: right;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 120px;
+    color: #fff;
+    background: transparent;
+    border-left: 1px solid #fff;
+    border-radius: 0 3px 3px 0;
+    &:hover {
+      background: #fff;
+      color:#444;
+    }
+    &:active {
+      box-shadow: 0px 0px 12px 0px rgba(225, 225, 225, 1);
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+// SEARCH ENDS

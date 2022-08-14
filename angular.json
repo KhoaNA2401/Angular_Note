@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "app-note:build:production",
+            "firebaseProject": "demolab-9dfb3",
+            "firebaseHostingSite": "demolab-9dfb3"
+          }
         }
       }
     }

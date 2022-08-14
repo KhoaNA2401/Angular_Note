@@ -1,7 +1,7 @@
 <div class="parent">
   <div class="section yellow">
     <form [formGroup]="form" (submit)="addNote()">
-      <label for="title" style="color: rgb(0, 0, 0);">Title</label>
+      <label for="title" style="color: rgb(0, 0, 0)">Title</label>
       <br />
       <input
         type="text"
@@ -13,7 +13,7 @@
         formControlName="title"
       />
       <br />
-      <label for="text" style="color: rgb(0, 0, 0);">Note</label>
+      <label for="text" style="color: rgb(0, 0, 0)">Note</label>
       <br />
       <textarea
         type="text"
@@ -29,22 +29,34 @@
     </form>
   </div>
   <div class="section purple">
-    <table class="container" >
+    <table class="container">
       <thead>
+        <input
+        type="text"
+        name="title"
+        id="title"
+        class="input"
+        placeholder="Search your note"
+        class="form-control"
+        [(ngModel)]="searchText"
+
+      />
+      <br>
         <tr>
           <th><h1>Title</h1></th>
           <th><h1>Date</h1></th>
           <th><h1>Note</h1></th>
-          <th><h1>Management</h1></th>
+          <th><h1>Acion</h1></th>
         </tr>
       </thead>
-      <tbody >
-        <tr *ngFor="let note of note$ | async ">
-          <td >{{note.title}}</td>
-          <td style="color: rgb(63, 212, 199);">{{note.createAt}}</td>
-          <td style="color: #ffff;">{{note.description}}</td>
-          <td> <button class="delete" (click)="deleteNote(note.id)">Delete</button>
-            <button class="update">Update</button></td>
+      <tbody>
+        <tr *ngFor="let note of note$ | async | filter: searchText">
+          <td>{{ note.title }}</td>
+          <td style="color: rgb(63, 212, 199)">{{ note.createAt }}</td>
+          <td style="color: #ffff">{{ note.description }}</td>
+          <td>
+            <button class="delete" (click)="deleteNote(note.id)">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
